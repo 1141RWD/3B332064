@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>柔光花藝 Flower Studio</title>
+
+<style>
+*{ box-sizing:border-box; }
+
+:root{
+  --pink:#fde2f3;
+  --purple:#e6d9ff;
+  --deep:#8a6fbf;
+}
+
+body{
+  margin:0;
+  font-family:"Microsoft JhengHei",sans-serif;
+  background:linear-gradient(120deg,var(--pink),var(--purple));
+}
+
+/* ===== Header ===== */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:500;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  color:var(--deep);
+}
+
+.hamburger{
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* ===== 漢堡選單 ===== */
+nav{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:260px;
+  height:100vh;
+  background:#fff;
+  padding:60px 20px;
+  transition:.3s;
+  box-shadow:-5px 0 15px rgba(0,0,0,.15);
+  z-index:1000;
+}
+nav.active{ right:0; }
+
+.close-btn{
+  position:absolute;
+  top:15px;
+  right:20px;
+  font-size:26px;
+  cursor:pointer;
+}
+
+nav a{
+  display:block;
+  margin:18px 0;
+  text-decoration:none;
+  color:#555;
+}
+
+/* ===== Banner ===== */
+.carousel img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+}
+
+/* ===== 分類區 ===== */
+.category-section{
+  padding:40px 30px;
+}
+
+.category-section h2{
+  text-align:center;
+  color:#6a4fa3;
+  margin-bottom:30px;
+}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:25px;
+}
+
+
+.category-card{
+  background:#fff;
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 6px 15px rgba(0,0,0,.1);
+}
+
+.category-card h3{
+  margin-bottom:8px;
+  color:#6a4fa3;
+}
+
+.category-card p{
+  font-size:14px;
+  color:#666;
+}
+
+.more{
+  display:none;
+  font-size:13px;
+  color:#777;
+  margin-top:6px;
+}
+
+button{
+  background:var(--deep);
+  color:#fff;
+  border:none;
+  padding:8px 16px;
+  border-radius:20px;
+  cursor:pointer;
+  margin-top:8px;
+}
+
+/* ===== Footer ===== */
+footer{
+  background:#fff;
+  padding:30px;
+  text-align:center;
+  font-size:14px;
+  color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">柔光花藝</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</header>
+
+<nav id="menu">
+  <div class="close-btn" onclick="toggleMenu()">✕</div>
+  <a href="#">首頁</a>
+  <a href="#">花藝分類</a>
+  <a href="#">購物車 (<span id="cartCount">0</span>)</a>
+</nav>
+
+<div class="carousel">
+  <img src="images/banner1.jpg">
+</div>
+
+<section class="category-section">
+<h2>花藝分類</h2>
+
+<div class="categories">
+
+  <!-- 每一個分類 -->
+  <div class="category-card">
+    <h3>花束</h3>
+    <p>日常、告白、送禮</p>
+    <div class="more">經典包裝花束，適合各種場合。</div>
+    <button onclick="toggleMore(this)">更多介紹</button><br>
+    <a href="bouquet.html" target="_blank"><button>查看商品</button></a>
+  </div>
+
+  <div class="category-card">
+    <h3>盆花</h3>
+    <p>室內擺設首選</p>
+    <div class="more">精緻盆花，提升生活質感。</div>
+    <button onclick="toggleMore(this)">更多介紹</button><br>
+    <a href="potted-flower.html" target="_blank"><button>查看商品</button></a>
+  </div>
+
+  <div class="category-card">
+    <h3>盆栽</h3>
+    <p>綠意生活</p>
+    <div class="more">耐看好照顧，適合辦公與居家。</div>
+    <button onclick="toggleMore(this)">更多介紹</button><br>
+    <a href="plant.html" target="_blank"><button>查看商品</button></a>
+  </div>
+
+  <div class="category-card">
+    <h3>高價花籃</h3>
+    <p>開幕、典禮</p>
+    <div class="more">大器設計，展現誠意。</div>
+    <button onclick="toggleMore(this)">更多介紹</button><br>
+    <a href="basket.html" target="_blank"><button>查看商品</button></a>
+  </div>
+
+  <div class="category-card">
+    <h3>永生花 & 乾燥花</h3>
+    <p>長久保存</p>
+    <div class="more">象徵永恆的祝福。</div>
+    <button onclick="toggleMore(this)">更多介紹</button><br>
+    <a href="preserved.html" target="_blank"><button>查看商品</button></a>
+  </div>
+
+  <div class="category-card">
+    <h3>畢業花束</h3>
+    <p>青春回憶</p>
+    <div class="more">為重要時刻留下美好祝福。</div>
+    <button onclick="toggleMore(this)">更多介紹</button><br>
+    <a href="graduation.html" target="_blank"><button>查看商品</button></a>
+  </div>
+
+  <div class="category-card">
+    <h3>節慶花束</h3>
+    <p>情人節、母親節</p>
+    <div class="more">依節慶主題設計。</div>
+    <button onclick="toggleMore(this)">更多介紹</button><br>
+    <a href="festival.html" target="_blank"><button>查看商品</button></a>
+  </div>
+
+  <div class="category-card">
+    <h3>景觀工程</h3>
+    <p>商業空間規劃</p>
+    <div class="more">客製化大型綠化設計。</div>
+    <button onclick="toggleMore(this)">更多介紹</button><br>
+    <a href="landscape.html" target="_blank"><button>查看商品</button></a>
+  </div>
+
+</div>
+</section>
+
+<footer>
+  <p>📍 台中市花藝路100號</p>
+  <p>☎ 04-1234-5678</p>
+  <p>✉ flowerstudio@email.com</p>
+</footer>
+
+<script>
+let cart = 0;
+
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+
+function toggleMore(btn){
+  const more = btn.previousElementSibling;
+  more.style.display = more.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
+<!--<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>柔光花藝 Flower Studio</title>
+
+<style>
+/* ===== 全域設定 ===== */
+*{
+  box-sizing:border-box;
+}
+
+:root{
+  --pink:#fde2f3;
+  --purple:#e6d9ff;
+  --deep:#8a6fbf;
+}
+
+body{
+  margin:0;
+  font-family:"Microsoft JhengHei",sans-serif;
+  background:linear-gradient(120deg,var(--pink),var(--purple));
+}
+
+/* ===== Header ===== */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:500;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  color:var(--deep);
+}
+
+.hamburger{
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* ===== 側邊漢堡選單 ===== */
+nav{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:260px;
+  height:100vh;
+  background:#fff;
+  padding:60px 20px 20px;
+  transition:0.3s ease;
+  box-shadow:-5px 0 15px rgba(0,0,0,.15);
+  z-index:1000;
+}
+
+nav.active{
+  right:0;
+}
+
+nav a{
+  display:block;
+  margin:20px 0;
+  color:#555;
+  text-decoration:none;
+  font-size:18px;
+}
+
+/* 關閉按鈕 ✕ */
+.close-btn{
+  position:absolute;
+  top:15px;
+  right:20px;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* ===== 輪播圖片 ===== */
+.carousel{
+  width:100%;
+  overflow:hidden;
+}
+
+.carousel img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+}
+
+/* ===== 商品區 ===== */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  padding:30px;
+}
+
+.card{
+  background:#fff;
+  border-radius:18px;
+  padding:15px;
+  box-shadow:0 6px 15px rgba(0,0,0,.1);
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.card h3{
+  margin:10px 0 5px;
+  color:#6a4fa3;
+}
+
+.card p{
+  font-size:14px;
+  color:#666;
+}
+
+/* 更多介紹 */
+.more{
+  display:none;
+  font-size:14px;
+  color:#777;
+  margin-top:5px;
+}
+
+button{
+  background:var(--deep);
+  color:#fff;
+  border:none;
+  padding:8px 16px;
+  border-radius:20px;
+  cursor:pointer;
+  margin:8px 4px 0;
+}
+</style>
+</head>
+
+<body>
+
+ //Header 
+<header>
+  <div class="logo">柔光花藝</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</header>
+
+ //側邊選單 
+<nav id="menu">
+  <div class="close-btn" onclick="toggleMenu()">✕</div>
+  <a href="#">首頁</a>
+  <a href="#">所有花束</a>
+  <a href="#">購物車（<span id="cartCount">0</span>）</a>
+</nav>
+
+ //輪播 
+<div class="carousel">
+  <img src="images/banner1.jpg" alt="花藝橫幅">
+</div>
+
+ //商品區 
+<section class="products">
+
+  <div class="card">
+    <a href="3B332064-1.html">
+      <img src="images/flower1.jpg" alt="粉紫浪漫花束">
+    </a>
+    <h3>粉紫浪漫花束</h3>
+    <p>適合告白與紀念日</p>
+
+    <div class="more">
+      使用進口玫瑰、洋桔梗與滿天星，象徵溫柔與永恆的陪伴。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
+  <div class="card">
+    <a href="3B332064-1.html">
+      <img src="images/flower2.jpg" alt="春日祝福花束">
+    </a>
+    <h3>春日祝福花束</h3>
+    <p>送給重要的人</p>
+
+    <div class="more">
+      淡粉康乃馨與白色小花，適合生日、感謝與祝福。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
+</section>
+
+ //JS 
+<script>
+let cart = 0;
+
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+
+function toggleMore(btn){
+  const more = btn.previousElementSibling;
+  more.style.display = (more.style.display === "block") ? "none" : "block";
+}
+
+function addCart(){
+  cart++;
+  document.getElementById("cartCount").innerText = cart;
+  alert("已加入購物車");
+}
+</script>
+
+</body>
+</html>-->
