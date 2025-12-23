@@ -2,45 +2,197 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<title>花束商品</title>
+<title>花束系列｜柔光花藝</title>
+
 <style>
+/* ===== 全域 ===== */
+*{
+  box-sizing:border-box;
+}
+
+:root{
+  --pink:#fde2f3;
+  --purple:#e6d9ff;
+  --deep:#8a6fbf;
+}
+
 body{
-  font-family:"Microsoft JhengHei";
-  background:#fdf2fb;
-  padding:30px;
+  margin:0;
+  font-family:"Microsoft JhengHei",sans-serif;
+  background:linear-gradient(120deg,var(--pink),var(--purple));
 }
-.item{
+
+/* ===== Header ===== */
+header{
   background:#fff;
-  border-radius:15px;
-  padding:20px;
-  margin-bottom:20px;
+  padding:15px 20px;
+  text-align:center;
 }
+
+header h1{
+  margin:0;
+  color:#6a4fa3;
+}
+
+/* ===== 商品區 ===== */
+.container{
+  padding:40px 30px;
+}
+
+/* ===== RWD 商品排列 ===== */
+.products{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr); /* 桌機 */
+  gap:25px;
+}
+
+/* 平板：1u/2 */
+@media (max-width:1024px){
+  .products{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+/* 手機：1u/1 */
+@media (max-width:600px){
+  .products{
+    grid-template-columns:1fr;
+  }
+}
+
+.card{
+  background:#fff;
+  border-radius:18px;
+  padding:15px;
+  box-shadow:0 6px 15px rgba(0,0,0,.1);
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+}
+
+.card h3{
+  color:#6a4fa3;
+  margin:10px 0 5px;
+}
+
+.price{
+  font-weight:bold;
+  color:#333;
+}
+
+.card p{
+  font-size:14px;
+  color:#666;
+}
+
+.more{
+  display:none;
+  font-size:13px;
+  color:#777;
+  margin-top:5px;
+}
+
 button{
-  background:#8a6fbf;
+  background:var(--deep);
   color:#fff;
   border:none;
   padding:8px 16px;
   border-radius:20px;
+  cursor:pointer;
+  margin:6px 3px 0;
+}
+
+/* ===== Footer ===== */
+footer{
+  background:#fff;
+  text-align:center;
+  padding:25px;
+  font-size:14px;
+  color:#555;
+  margin-top:40px;
 }
 </style>
 </head>
+
 <body>
 
-<h2>花束系列</h2>
+<header>
+  <h1>花束系列</h1>
+</header>
 
-<div class="item">
-  <h3>粉紫浪漫花束</h3>
-  <p>價格：NT$1,280</p>
-  <p>適合告白與紀念日</p>
-  <button onclick="alert('已加入購物車')">加入購物車</button>
-</div>
+<section class="container">
 
-<div class="item">
-  <h3>純白祝福花束</h3>
-  <p>價格：NT$1,580</p>
-  <p>象徵純潔與祝福</p>
-  <button onclick="alert('已加入購物車')">加入購物車</button>
+<div class="products">
+
+  <!-- 商品 1 -->
+  <div class="card">
+    <img src="images/flower1.jpg" alt="粉紫浪漫花束">
+    <h3>粉紫浪漫花束</h3>
+    <div class="price">NT$ 1,280</div>
+    <p>告白與紀念日首選</p>
+
+    <div class="more">
+      使用進口玫瑰、洋桔梗與滿天星，象徵溫柔與永恆。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
+  <!-- 商品 2 -->
+  <div class="card">
+    <img src="images/flower2.jpg" alt="純白祝福花束">
+    <h3>純白祝福花束</h3>
+    <div class="price">NT$ 1,580</div>
+    <p>象徵純潔與祝福</p>
+
+    <div class="more">
+      白玫瑰搭配小雛菊，適合感謝、祝賀場合。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
+  <!-- 商品 3 -->
+  <div class="card">
+    <img src="images/flower3.jpg" alt="粉色心意花束">
+    <h3>粉色心意花束</h3>
+    <div class="price">NT$ 1,380</div>
+    <p>溫柔傳情</p>
+
+    <div class="more">
+      淡粉色系花材，展現溫暖與細膩心意。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
 </div>
+</section>
+
+<footer>
+  <p>柔光花藝 Flower Studio</p>
+  <p>☎ 04-1234-5678 ｜ ✉ flowerstudio@email.com</p>
+</footer>
+
+<script>
+let cart = 0;
+
+function toggleMore(btn){
+  const more = btn.previousElementSibling;
+  more.style.display = (more.style.display === "block") ? "none" : "block";
+}
+
+function addCart(){
+  cart++;
+  alert("商品已加入購物車（目前：" + cart + " 件）");
+}
+</script>
 
 </body>
 </html>

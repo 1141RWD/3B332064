@@ -5,7 +5,10 @@
 <title>柔光花藝 Flower Studio</title>
 
 <style>
-*{ box-sizing:border-box; }
+/* ===== 全域設定 ===== */
+*{
+  box-sizing:border-box;
+}
 
 :root{
   --pink:#fde2f3;
@@ -51,11 +54,13 @@ nav{
   height:100vh;
   background:#fff;
   padding:60px 20px;
-  transition:.3s;
+  transition:.3s ease;
   box-shadow:-5px 0 15px rgba(0,0,0,.15);
   z-index:1000;
 }
-nav.active{ right:0; }
+nav.active{
+  right:0;
+}
 
 .close-btn{
   position:absolute;
@@ -70,6 +75,7 @@ nav a{
   margin:18px 0;
   text-decoration:none;
   color:#555;
+  font-size:18px;
 }
 
 /* ===== Banner ===== */
@@ -90,19 +96,22 @@ nav a{
   margin-bottom:30px;
 }
 
+/* ===== RWD 1u/4 核心 ===== */
 .categories{
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
+  grid-template-columns:repeat(4, 1fr); /* 桌機：1u/4 */
   gap:25px;
 }
 
-@media (max-width: 1024px){
+/* 平板：1u/2 */
+@media (max-width:1024px){
   .categories{
     grid-template-columns:repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px){
+/* 手機：1u/1 */
+@media (max-width:600px){
   .categories{
     grid-template-columns:1fr;
   }
@@ -117,8 +126,8 @@ nav a{
 }
 
 .category-card h3{
-  margin-bottom:8px;
   color:#6a4fa3;
+  margin-bottom:8px;
 }
 
 .category-card p{
@@ -156,32 +165,35 @@ footer{
 
 <body>
 
+<!-- Header -->
 <header>
   <div class="logo">柔光花藝</div>
   <div class="hamburger" onclick="toggleMenu()">☰</div>
 </header>
 
+<!-- 漢堡選單 -->
 <nav id="menu">
   <div class="close-btn" onclick="toggleMenu()">✕</div>
   <a href="#">首頁</a>
   <a href="#">花藝分類</a>
-  <a href="#">購物車 (<span id="cartCount">0</span>)</a>
+  <a href="#">購物車</a>
 </nav>
 
+<!-- Banner -->
 <div class="carousel">
-  <img src="images/banner1.jpg">
+  <img src="images/banner1.jpg" alt="花藝橫幅">
 </div>
 
+<!-- 分類 -->
 <section class="category-section">
 <h2>花藝分類</h2>
 
 <div class="categories">
 
-  <!-- 每一個分類 -->
   <div class="category-card">
     <h3>花束</h3>
     <p>日常、告白、送禮</p>
-    <div class="more">經典包裝花束，適合各種場合。</div>
+    <div class="more">多款包裝設計，適合各種場合。</div>
     <button onclick="toggleMore(this)">更多介紹</button><br>
     <a href="bouquet.html" target="_blank"><button>查看商品</button></a>
   </div>
@@ -189,7 +201,7 @@ footer{
   <div class="category-card">
     <h3>盆花</h3>
     <p>室內擺設首選</p>
-    <div class="more">精緻盆花，提升生活質感。</div>
+    <div class="more">精緻盆花，增添生活儀式感。</div>
     <button onclick="toggleMore(this)">更多介紹</button><br>
     <a href="potted-flower.html" target="_blank"><button>查看商品</button></a>
   </div>
@@ -197,15 +209,15 @@ footer{
   <div class="category-card">
     <h3>盆栽</h3>
     <p>綠意生活</p>
-    <div class="more">耐看好照顧，適合辦公與居家。</div>
+    <div class="more">耐看又好照顧，適合居家與辦公。</div>
     <button onclick="toggleMore(this)">更多介紹</button><br>
     <a href="plant.html" target="_blank"><button>查看商品</button></a>
   </div>
 
   <div class="category-card">
     <h3>高價花籃</h3>
-    <p>開幕、典禮</p>
-    <div class="more">大器設計，展現誠意。</div>
+    <p>開幕、典禮首選</p>
+    <div class="more">大器設計，展現最高誠意。</div>
     <button onclick="toggleMore(this)">更多介紹</button><br>
     <a href="basket.html" target="_blank"><button>查看商品</button></a>
   </div>
@@ -213,31 +225,31 @@ footer{
   <div class="category-card">
     <h3>永生花 & 乾燥花</h3>
     <p>長久保存</p>
-    <div class="more">象徵永恆的祝福。</div>
+    <div class="more">象徵永恆祝福與回憶。</div>
     <button onclick="toggleMore(this)">更多介紹</button><br>
     <a href="preserved.html" target="_blank"><button>查看商品</button></a>
   </div>
 
   <div class="category-card">
     <h3>畢業花束</h3>
-    <p>青春回憶</p>
-    <div class="more">為重要時刻留下美好祝福。</div>
+    <p>青春祝福</p>
+    <div class="more">為人生重要階段留下紀念。</div>
     <button onclick="toggleMore(this)">更多介紹</button><br>
     <a href="graduation.html" target="_blank"><button>查看商品</button></a>
   </div>
 
   <div class="category-card">
     <h3>節慶花束</h3>
-    <p>情人節、母親節</p>
-    <div class="more">依節慶主題設計。</div>
+    <p>節日限定</p>
+    <div class="more">母親節、情人節專屬設計。</div>
     <button onclick="toggleMore(this)">更多介紹</button><br>
     <a href="festival.html" target="_blank"><button>查看商品</button></a>
   </div>
 
   <div class="category-card">
     <h3>景觀工程</h3>
-    <p>商業空間規劃</p>
-    <div class="more">客製化大型綠化設計。</div>
+    <p>商業與空間規劃</p>
+    <div class="more">大型綠化與客製花藝工程。</div>
     <button onclick="toggleMore(this)">更多介紹</button><br>
     <a href="landscape.html" target="_blank"><button>查看商品</button></a>
   </div>
@@ -245,6 +257,7 @@ footer{
 </div>
 </section>
 
+<!-- Footer -->
 <footer>
   <p>📍 台中市花藝路100號</p>
   <p>☎ 04-1234-5678</p>
@@ -252,20 +265,19 @@ footer{
 </footer>
 
 <script>
-let cart = 0;
-
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
 
 function toggleMore(btn){
   const more = btn.previousElementSibling;
-  more.style.display = more.style.display === "block" ? "none" : "block";
+  more.style.display = (more.style.display === "block") ? "none" : "block";
 }
 </script>
 
 </body>
 </html>
+
 <!--<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
