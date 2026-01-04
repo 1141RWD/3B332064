@@ -79,3 +79,427 @@ function buy(){
 
 </body>
 </html>
+<!--<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>柔光花藝 Flower Studio</title>
+
+<style>
+/* ===== 全域設定 ===== */
+*{
+  box-sizing:border-box;
+}
+
+:root{
+  --pink:#fde2f3;
+  --purple:#e6d9ff;
+  --deep:#8a6fbf;
+}
+
+body{
+  margin:0;
+  font-family:"Microsoft JhengHei",sans-serif;
+  background:linear-gradient(120deg,var(--pink),var(--purple));
+}
+
+/* ===== Header ===== */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:500;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  color:var(--deep);
+}
+
+.hamburger{
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* ===== 側邊漢堡選單 ===== */
+nav{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:260px;
+  height:100vh;
+  background:#fff;
+  padding:60px 20px 20px;
+  transition:0.3s ease;
+  box-shadow:-5px 0 15px rgba(0,0,0,.15);
+  z-index:1000;
+}
+
+nav.active{
+  right:0;
+}
+
+nav a{
+  display:block;
+  margin:20px 0;
+  color:#555;
+  text-decoration:none;
+  font-size:18px;
+}
+
+/* 關閉按鈕 ✕ */
+.close-btn{
+  position:absolute;
+  top:15px;
+  right:20px;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* ===== 輪播圖片 ===== */
+.carousel{
+  width:100%;
+  overflow:hidden;
+}
+
+.carousel img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+}
+
+/* ===== 商品區 ===== */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  padding:30px;
+}
+
+.card{
+  background:#fff;
+  border-radius:18px;
+  padding:15px;
+  box-shadow:0 6px 15px rgba(0,0,0,.1);
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.card h3{
+  margin:10px 0 5px;
+  color:#6a4fa3;
+}
+
+.card p{
+  font-size:14px;
+  color:#666;
+}
+
+/* 更多介紹 */
+.more{
+  display:none;
+  font-size:14px;
+  color:#777;
+  margin-top:5px;
+}
+
+button{
+  background:var(--deep);
+  color:#fff;
+  border:none;
+  padding:8px 16px;
+  border-radius:20px;
+  cursor:pointer;
+  margin:8px 4px 0;
+}
+</style>
+</head>
+
+<body>
+
+ //Header 
+<header>
+  <div class="logo">柔光花藝</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</header>
+
+ //側邊選單 
+<nav id="menu">
+  <div class="close-btn" onclick="toggleMenu()">✕</div>
+  <a href="#">首頁</a>
+  <a href="#">所有花束</a>
+  <a href="#">購物車（<span id="cartCount">0</span>）</a>
+</nav>
+
+ //輪播 
+<div class="carousel">
+  <img src="images/banner1.jpg" alt="花藝橫幅">
+</div>
+
+ //商品區 
+<section class="products">
+
+  <div class="card">
+    <a href="3B332064-1.html">
+      <img src="images/flower1.jpg" alt="粉紫浪漫花束">
+    </a>
+    <h3>粉紫浪漫花束</h3>
+    <p>適合告白與紀念日</p>
+
+    <div class="more">
+      使用進口玫瑰、洋桔梗與滿天星，象徵溫柔與永恆的陪伴。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
+  <div class="card">
+    <a href="3B332064-1.html">
+      <img src="images/flower2.jpg" alt="春日祝福花束">
+    </a>
+    <h3>春日祝福花束</h3>
+    <p>送給重要的人</p>
+
+    <div class="more">
+      淡粉康乃馨與白色小花，適合生日、感謝與祝福。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
+</section>
+
+ //JS 
+<script>
+let cart = 0;
+
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+
+function toggleMore(btn){
+  const more = btn.previousElementSibling;
+  more.style.display = (more.style.display === "block") ? "none" : "block";
+}
+
+function addCart(){
+  cart++;
+  document.getElementById("cartCount").innerText = cart;
+  alert("已加入購物車");
+}
+</script>
+
+</body>
+</html>
+--><!--
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>花束系列｜柔光花藝</title>
+
+<style>
+/* ===== 全域 ===== */
+*{
+  box-sizing:border-box;
+}
+
+:root{
+  --pink:#fde2f3;
+  --purple:#e6d9ff;
+  --deep:#8a6fbf;
+}
+
+body{
+  margin:0;
+  font-family:"Microsoft JhengHei",sans-serif;
+  background:linear-gradient(120deg,var(--pink),var(--purple));
+}
+
+/* ===== Header ===== */
+header{
+  background:#fff;
+  padding:15px 20px;
+  text-align:center;
+}
+
+header h1{
+  margin:0;
+  color:#6a4fa3;
+}
+
+/* ===== 商品區 ===== */
+.container{
+  padding:40px 30px;
+}
+
+/* ===== RWD 商品排列 ===== */
+.products{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr); /* 桌機 */
+  gap:25px;
+}
+
+/* 平板：1u/2 */
+@media (max-width:1024px){
+  .products{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+/* 手機：1u/1 */
+@media (max-width:600px){
+  .products{
+    grid-template-columns:1fr;
+  }
+}
+
+.card{
+  background:#fff;
+  border-radius:18px;
+  padding:15px;
+  box-shadow:0 6px 15px rgba(0,0,0,.1);
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+}
+
+.card h3{
+  color:#6a4fa3;
+  margin:10px 0 5px;
+}
+
+.price{
+  font-weight:bold;
+  color:#333;
+}
+
+.card p{
+  font-size:14px;
+  color:#666;
+}
+
+.more{
+  display:none;
+  font-size:13px;
+  color:#777;
+  margin-top:5px;
+}
+
+button{
+  background:var(--deep);
+  color:#fff;
+  border:none;
+  padding:8px 16px;
+  border-radius:20px;
+  cursor:pointer;
+  margin:6px 3px 0;
+}
+
+/* ===== Footer ===== */
+footer{
+  background:#fff;
+  text-align:center;
+  padding:25px;
+  font-size:14px;
+  color:#555;
+  margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>花束系列</h1>
+</header>
+
+<section class="container">
+
+<div class="products">
+
+  // 商品 1 
+  <div class="card">
+    <img src="images/flower1.jpg" alt="粉紫浪漫花束">
+    <h3>粉紫浪漫花束</h3>
+    <div class="price">NT$ 1,280</div>
+    <p>告白與紀念日首選</p>
+
+    <div class="more">
+      使用進口玫瑰、洋桔梗與滿天星，象徵溫柔與永恆。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
+  //商品 2
+  <div class="card">
+    <img src="images/flower2.jpg" alt="純白祝福花束">
+    <h3>純白祝福花束</h3>
+    <div class="price">NT$ 1,580</div>
+    <p>象徵純潔與祝福</p>
+
+    <div class="more">
+      白玫瑰搭配小雛菊，適合感謝、祝賀場合。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
+  // 商品 3
+  <div class="card">
+    <img src="images/flower3.jpg" alt="粉色心意花束">
+    <h3>粉色心意花束</h3>
+    <div class="price">NT$ 1,380</div>
+    <p>溫柔傳情</p>
+
+    <div class="more">
+      淡粉色系花材，展現溫暖與細膩心意。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
+</div>
+</section>
+
+<footer>
+  <p>柔光花藝 Flower Studio</p>
+  <p>☎ 04-1234-5678 ｜ ✉ flowerstudio@email.com</p>
+</footer>
+
+<script>
+let cart = 0;
+
+function toggleMore(btn){
+  const more = btn.previousElementSibling;
+  more.style.display = (more.style.display === "block") ? "none" : "block";
+}
+
+function addCart(){
+  cart++;
+  alert("商品已加入購物車（目前：" + cart + " 件）");
+}
+</script>
+
+</body>
+</html>
+-->

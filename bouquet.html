@@ -34,6 +34,43 @@ header h1{
   color:#6a4fa3;
 }
 
+.hamburger{
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* ===== 漢堡選單 ===== */
+nav{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:260px;
+  height:100vh;
+  background:#fff;
+  padding:60px 20px;
+  transition:.3s ease;
+  box-shadow:-5px 0 15px rgba(0,0,0,.15);
+  z-index:1000;
+}
+nav.active{
+  right:0;
+}
+
+.close-btn{
+  position:absolute;
+  top:15px;
+  right:20px;
+  font-size:26px;
+  cursor:pointer;
+}
+
+nav a{
+  display:block;
+  margin:18px 0;
+  text-decoration:none;
+  color:#555;
+  font-size:18px;
+}
 /* ===== 商品區 ===== */
 .container{
   padding:40px 30px;
@@ -107,12 +144,11 @@ button{
 
 /* ===== Footer ===== */
 footer{
-  background:#fff;
+  background:#fedd89;
+  padding:30px;
   text-align:center;
-  padding:25px;
   font-size:14px;
   color:#555;
-  margin-top:40px;
 }
 </style>
 </head>
@@ -121,7 +157,16 @@ footer{
 
 <header>
   <h1>花束系列</h1>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
 </header>
+
+<!-- 漢堡選單 -->
+<nav id="menu">
+  <div class="close-btn" onclick="toggleMenu()">✕</div>
+  <a href="index.html">首頁</a>
+  <a href="#">花藝分類</a>
+  <a href="#">購物車</a>
+</nav>
 
 <section class="container">
 
@@ -158,6 +203,48 @@ footer{
   </div>
 
   <!-- 商品 3 -->
+  <div class="card">
+    <img src="images/flower3.jpg" alt="粉色心意花束">
+    <h3>粉色心意花束</h3>
+    <div class="price">NT$ 1,380</div>
+    <p>溫柔傳情</p>
+
+    <div class="more">
+      淡粉色系花材，展現溫暖與細膩心意。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
+  <div class="card">
+    <img src="images/flower3.jpg" alt="粉色心意花束">
+    <h3>粉色心意花束</h3>
+    <div class="price">NT$ 1,380</div>
+    <p>溫柔傳情</p>
+
+    <div class="more">
+      淡粉色系花材，展現溫暖與細膩心意。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+  
+  <div class="card">
+    <img src="images/flower3.jpg" alt="粉色心意花束">
+    <h3>粉色心意花束</h3>
+    <div class="price">NT$ 1,380</div>
+    <p>溫柔傳情</p>
+
+    <div class="more">
+      淡粉色系花材，展現溫暖與細膩心意。
+    </div>
+
+    <button onclick="toggleMore(this)">更多介紹</button>
+    <button onclick="addCart()">加入購物車</button>
+  </div>
+
   <div class="card">
     <img src="images/flower3.jpg" alt="粉色心意花束">
     <h3>粉色心意花束</h3>
