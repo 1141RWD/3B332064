@@ -173,6 +173,43 @@ button{
   font-size:18px;
 }
 
+.product-card{
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  transition: 
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* 漸層光邊框（用偽元素） */
+.product-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:20px;
+  background:linear-gradient(
+    135deg,
+    #f7b7d7,
+    #d6c1ff,
+    #ffd6eb
+  );
+  opacity:0;
+  z-index:-1;
+  transition:.35s;
+  filter: blur(6px);
+}
+
+/* Hover 效果 */
+.product-card:hover{
+  transform: scale(1.05);
+}
+
+.product-card:hover::before{
+  opacity:1;
+}
+
 /* ===== Footer ===== */
 footer{
   background:#fedd89;
@@ -204,14 +241,14 @@ footer{
 <div class="products">
 
   <!-- 商品 1 -->
-  <div class="card">
-    <img src="images/flower1.jpg" alt="粉紫浪漫花束">
-    <h3>粉紫浪漫花束</h3>
-    <div class="price">NT$ 1,280</div>
-    <p>告白與紀念日首選</p>
+  <div class="product-card">
+    <img src="images/節慶1.jpg" width="200" alt="節慶1">
+    <h3>花材：牡丹菊、虎頭蘭、大康、萬代蘭、千代蘭、佛手</h3>
+    <div class="price">NT$ 10,000</div>
+    <p>花卉鑑賞期限約3-5天，會因環境、氣候、溫度等因素而影響花卉的生命，建議適時給予水分</p>
 
     <div class="more">
-      使用進口玫瑰、洋桔梗與滿天星，象徵溫柔與永恆。
+      花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -219,14 +256,14 @@ footer{
   </div>
 
   <!-- 商品 2 -->
-  <div class="card">
-    <img src="images/flower2.jpg" alt="純白祝福花束">
-    <h3>純白祝福花束</h3>
-    <div class="price">NT$ 1,580</div>
-    <p>象徵純潔與祝福</p>
+  <div class="product-card">
+    <img src="images/節慶2.jpg" width="200" alt="節慶2">
+    <h3>花材:白玫瑰、桔梗、桃花、繡球、金翠、橘萬代蘭</h3>
+    <div class="price">NT$ 2,500</div>
+    <p>花卉鑑賞期限約3-5天，會因環境、氣候、溫度等因素而影響花卉的生命，建議適時給予水分</p>
 
     <div class="more">
-      白玫瑰搭配小雛菊，適合感謝、祝賀場合。
+      花器或裝飾品會因廠商生產或進口等因素出現缺貨或顏色些許不同的情形，會以同等質、大小的花器、飾品做替換。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -234,56 +271,56 @@ footer{
   </div>
 
   <!-- 商品 3 -->
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/節慶3.jpg" width="200" alt="節慶3">
+    <h3>花材：玫瑰、東亞蘭、牡丹菊、石竹</h3>
+    <div class="price">NT$ 2,500</div>
+    <p>花卉鑑賞期限約3-5天，會因環境、氣候、溫度等因素而影響花卉的生命，建議適時給予水分</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花器或裝飾品會因廠商生產或進口等因素出現缺貨或顏色些許不同的情形，會以同等質、大小的花器、飾品做替換。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/節慶4.jpg" width="200" alt="節慶4">
+    <h3>花材：蝴蝶蘭、唐棉、紅色玫瑰、粉色玫瑰、紫色桔梗</h3>
+    <div class="price">NT$ 3,000</div>
+    <p>水果為蘋果四顆，若欲更換不同水果，請先來電洽詢，價格亦會因水果品項做調整</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
   
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/節慶5.jpg" width="200" alt="節慶5">
+    <h3>花材：粉紅玫瑰、粉色桔梗、木瓜千代、橘色雞冠、唐棉</h3>
+    <div class="price">NT$ 3,000</div>
+    <p>酒款以公司提供為主，若欲自行提供酒品，可事先來電討論</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/節慶6.jpg" width="200" alt="節慶6">
+    <h3>花材：桃紅牡丹菊、紫色牡丹菊、淺紫藍色牡丹菊、桃紫色千代、紫色巨輪、葉牡丹</h3>
+    <div class="price">NT$ 6,000</div>
+    <p>花卉鑑賞期限約3-5天，會因環境、氣候、溫度等因素而影響花卉的生命，建議適時給予水分</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>

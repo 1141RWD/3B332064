@@ -173,6 +173,43 @@ button{
   font-size:18px;
 }
 
+.product-card{
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  transition: 
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* 漸層光邊框（用偽元素） */
+.product-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:20px;
+  background:linear-gradient(
+    135deg,
+    #f7b7d7,
+    #d6c1ff,
+    #ffd6eb
+  );
+  opacity:0;
+  z-index:-1;
+  transition:.35s;
+  filter: blur(6px);
+}
+
+/* Hover 效果 */
+.product-card:hover{
+  transform: scale(1.05);
+}
+
+.product-card:hover::before{
+  opacity:1;
+}
+
 /* ===== Footer ===== */
 footer{
   background:#fedd89;
@@ -204,9 +241,9 @@ footer{
 <div class="products">
 
   <!-- 商品 1 -->
-  <div class="card">
-    <img src="images/flower1.jpg" alt="粉紫浪漫花束">
-    <h3>粉紫浪漫花束</h3>
+  <div class="product-card">
+    <img src="images/original.jpeg" width="200" alt="紫色浪漫花束">
+    <h3>紫色浪漫花束</h3>
     <div class="price">NT$ 1,280</div>
     <p>告白與紀念日首選</p>
 
@@ -219,8 +256,8 @@ footer{
   </div>
 
   <!-- 商品 2 -->
-  <div class="card">
-    <img src="images/flower2.jpg" alt="純白祝福花束">
+  <div class="product-card">
+    <img src="images/v2-7c1bdb61ff9c5cdde83848c7462e05c0_1440w.jpg" width="200" alt="純白祝福花束">
     <h3>純白祝福花束</h3>
     <div class="price">NT$ 1,580</div>
     <p>象徵純潔與祝福</p>
@@ -234,52 +271,52 @@ footer{
   </div>
 
   <!-- 商品 3 -->
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
+  <div class="product-card">
+    <img src="images/v2-a27dbe49d88afc4dc7027d44a18dee71_1440w.jpg" width="200" alt="粉色心意花束">
+    <h3>韓式花束</h3>
     <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+    <p>韓式花束最近幾年很流行，浪漫優雅的風格擄獲了很多小姐姐的芳心。</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      韓式花束花材種類多，通常有主花，多種配花、配葉。選擇不同質感的花材更增加了花束的層次感。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
+  <div class="product-card">
+    <img src="images/v2-a71b713582899c4ec6a84b71f73b9e58_r.jpg" width="200" alt="粉色心意花束">
+    <h3>韓式花束</h3>
     <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+    <p>韓式花束最近幾年很流行，浪漫優雅的風格擄獲了很多小姐姐的芳心。</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      韓式花束花材多樣、颜色乾淨、浪漫優雅，因此受眾廣，最適合送人了。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
   
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/bouquet_s_pu_1.jpg" width="200" alt="蝴蝶蘭花束">
+    <h3>蝴蝶蘭花束</h3>
+    <div class="price">NT$ 1,540</div>
+    <p>蝴蝶蘭的花語是「幸福降臨」。 從美麗與幸福的意象飛入其中，它作為禮物非常受歡迎。</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      蝴蝶蘭花朵非常強壯，花期良好。 只要簡單照料，它就能長時間綻放，即使在忙碌場合也不會給收禮者帶來不便。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
+  <div class="product-card">
+    <img src="images/花束.jpg" width="200" alt="粉色心意花束">
     <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
+    <div class="price">NT$ 1,420</div>
     <p>溫柔傳情</p>
 
     <div class="more">

@@ -173,6 +173,43 @@ button{
   font-size:18px;
 }
 
+.product-card{
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  transition: 
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* 漸層光邊框（用偽元素） */
+.product-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:20px;
+  background:linear-gradient(
+    135deg,
+    #f7b7d7,
+    #d6c1ff,
+    #ffd6eb
+  );
+  opacity:0;
+  z-index:-1;
+  transition:.35s;
+  filter: blur(6px);
+}
+
+/* Hover 效果 */
+.product-card:hover{
+  transform: scale(1.05);
+}
+
+.product-card:hover::before{
+  opacity:1;
+}
+
 /* ===== Footer ===== */
 footer{
   background:#fedd89;
@@ -204,14 +241,14 @@ footer{
 <div class="products">
 
   <!-- 商品 1 -->
-  <div class="card">
-    <img src="images/flower1.jpg" alt="粉紫浪漫花束">
-    <h3>粉紫浪漫花束</h3>
-    <div class="price">NT$ 1,280</div>
-    <p>告白與紀念日首選</p>
+  <div class="product-card">
+    <img src="images/桌上型藝術盆花-A.jpg" width="200" alt="桌上型藝術盆花">
+    <h3>藝術型桌上盆花-A</h3>
+    <div class="price">NT$ 3,500</div>
+    <p>花籃用途：開幕、祝賀、追思 皆可設計</p>
 
     <div class="more">
-      使用進口玫瑰、洋桔梗與滿天星，象徵溫柔與永恆。
+      盆花含意：祝賀鮮花象徵美好、平安繁榮之意，送花給親友，將祝福心意傳遞出去。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -219,14 +256,14 @@ footer{
   </div>
 
   <!-- 商品 2 -->
-  <div class="card">
-    <img src="images/flower2.jpg" alt="純白祝福花束">
-    <h3>純白祝福花束</h3>
-    <div class="price">NT$ 1,580</div>
-    <p>象徵純潔與祝福</p>
+  <div class="product-card">
+    <img src="images/桌上型藝術盆花-B.jpg" width="200" alt="桌上型藝術盆花-B">
+    <h3>桌上型藝術盆花-B</h3>
+    <div class="price">NT$ 3,500</div>
+    <p>花籃用途：開幕、祝賀、追思 皆可設計</p>
 
     <div class="more">
-      白玫瑰搭配小雛菊，適合感謝、祝賀場合。
+      盆花含意：祝賀鮮花象徵美好、平安繁榮之意，送花給親友，將祝福心意傳遞出去。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -234,56 +271,56 @@ footer{
   </div>
 
   <!-- 商品 3 -->
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/盆花3.jpg" width="200" alt="盆花3">
+    <h3>花材：繡球、伏子花、小太陽、蘭花</h3>
+    <div class="price">NT$ 2,200</div>
+    <p>花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花卉鑑賞期限約3-5天，會因環境、氣候、溫度等因素而影響花卉的生命，建議適時給予水分。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/盆花4.jpg" width="200" alt="盆花4">
+    <h3>花材：孤挺花、紅色玫瑰</h3>
+    <div class="price">NT$ 3,000</div>
+    <p>花器：藤籃（長約34cm、寬約26cm）</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花卉鑑賞期限約3-5天，會因環境、氣候、溫度等因素而影響花卉的生命，建議適時給予水分。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
   
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/盆花5.jpg" width="200" alt="盆花5">
+    <h3>花材：白色繡球、白色玫瑰、桃紅玫瑰、粉色玫瑰、東亞蘭、綠色石斛蘭</h3>
+    <div class="price">NT$ 4,000</div>
+    <p>花器：玻璃花器（高約40~45cm）</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花器或裝飾品會因廠商生產或進口等因素出現缺貨或顏色些許不同的情形，會以同等質、大小的花器、飾品做替換。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
+  <div class="product-card">
+    <img src="images/盆花6.jpg" width="200" alt="盆花6">
+    <h3>花材：金魚草、貝殼花、繡球、桔梗、海芋、玫瑰</h3>
     <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+    <p>花器：白色瓷盆(直徑約23cm)</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>

@@ -173,6 +173,43 @@ button{
   font-size:18px;
 }
 
+.product-card{
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  transition: 
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* 漸層光邊框（用偽元素） */
+.product-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:20px;
+  background:linear-gradient(
+    135deg,
+    #f7b7d7,
+    #d6c1ff,
+    #ffd6eb
+  );
+  opacity:0;
+  z-index:-1;
+  transition:.35s;
+  filter: blur(6px);
+}
+
+/* Hover 效果 */
+.product-card:hover{
+  transform: scale(1.05);
+}
+
+.product-card:hover::before{
+  opacity:1;
+}
+
 /* ===== Footer ===== */
 footer{
   background:#fedd89;
@@ -204,14 +241,14 @@ footer{
 <div class="products">
 
   <!-- 商品 1 -->
-  <div class="card">
-    <img src="images/flower1.jpg" alt="粉紫浪漫花束">
-    <h3>粉紫浪漫花束</h3>
-    <div class="price">NT$ 1,280</div>
-    <p>告白與紀念日首選</p>
+  <div class="product-card">
+    <img src="images/滿天星花束-主圖.jpg" width="200" alt="滿天星花束">
+    <h3>滿天星花束</h3>
+    <div class="price">NT$ 3,000</div>
+    <p>花材依據季節性、地區性浮動會再幫您搭配(依出貨為準)</p>
 
     <div class="more">
-      使用進口玫瑰、洋桔梗與滿天星，象徵溫柔與永恆。
+      分類: 母親節花束, 情人節花束, 聖誕花, 教師節花, 父親節花, 七夕花, 春節花, 520送花, 端午節花, 萬聖節花, 中秋節花籃, 重陽節花, 感恩節花, 永生花, 乾燥花
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -219,14 +256,14 @@ footer{
   </div>
 
   <!-- 商品 2 -->
-  <div class="card">
-    <img src="images/flower2.jpg" alt="純白祝福花束">
-    <h3>純白祝福花束</h3>
-    <div class="price">NT$ 1,580</div>
-    <p>象徵純潔與祝福</p>
+  <div class="product-card">
+    <img src="images/紫繁星花束-商品.jpg" width="200" alt="紫繁星花束">
+    <h3>紫繁星花束</h3>
+    <div class="price">NT$ 3,000</div>
+    <p>花材依據季節性、地區性浮動會再幫您搭配(依出貨為準)</p>
 
     <div class="more">
-      白玫瑰搭配小雛菊，適合感謝、祝賀場合。
+      分類: 節日花禮, 母親節花束, 情人節花束, 聖誕花, 教師節花, 父親節花, 七夕花, 春節花, 520送花, 端午節花, 萬聖節花, 中秋節花籃, 重陽節花, 感恩節花, 永生花, 乾燥花
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -234,56 +271,56 @@ footer{
   </div>
 
   <!-- 商品 3 -->
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/羅曼蒂克花罩-商品.jpg" width="200" alt="羅曼蒂克花罩">
+    <h3>羅曼蒂克花罩</h3>
+    <div class="price">NT$ 3,000</div>
+    <p>花材依據季節性、地區性浮動會再幫您搭配(依出貨為準)</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      分類: 節日花禮, 情人節花束, 聖誕花, 七夕花, 520送花, 永生花, 乾燥花
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/秋色滿園花盆-商品.jpg" width="200" alt="秋色滿園花盆">
+    <h3>秋色滿園花盆</h3>
+    <div class="price">NT$ 4,500</div>
+    <p>花材依據季節性、地區性浮動會再幫您搭配(依出貨為準)</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      分類: 節日花禮, 母親節花束, 情人節花束, 聖誕花, 教師節花, 父親節花, 七夕花, 春節花, 520送花, 端午節花, 萬聖節花, 中秋節花籃, 重陽節花, 感恩節花, 永生花, 乾燥花
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
   
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
+  <div class="product-card">
+    <img src="images/青藍玫瑰花盆-商品.jpg" width="200" alt="青藍玫瑰花盆">
+    <h3>青藍玫瑰花盆</h3>
     <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+    <p>花材依據季節性、地區性浮動會再幫您搭配(依出貨為準)</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      分類: 節日花禮, 母親節花束, 情人節花束, 聖誕花, 教師節花, 父親節花, 七夕花, 春節花, 520送花, 端午節花, 萬聖節花, 中秋節花籃, 重陽節花, 感恩節花, 永生花, 乾燥花
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/柔情金麥盆-商品.jpg" width="200" alt="柔情金麥盆">
+    <h3>柔情金麥盆</h3>
+    <div class="price">NT$ 4,500</div>
+    <p>花材依據季節性、地區性浮動會再幫您搭配(依出貨為準)</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      分類: 節日花禮, 母親節花束, 情人節花束, 聖誕花, 教師節花, 父親節花, 七夕花, 春節花, 520送花, 端午節花, 萬聖節花, 中秋節花籃, 重陽節花, 感恩節花, 永生花, 乾燥花
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>

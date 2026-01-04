@@ -173,6 +173,43 @@ button{
   font-size:18px;
 }
 
+.product-card{
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  transition: 
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* 漸層光邊框（用偽元素） */
+.product-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:20px;
+  background:linear-gradient(
+    135deg,
+    #f7b7d7,
+    #d6c1ff,
+    #ffd6eb
+  );
+  opacity:0;
+  z-index:-1;
+  transition:.35s;
+  filter: blur(6px);
+}
+
+/* Hover 效果 */
+.product-card:hover{
+  transform: scale(1.05);
+}
+
+.product-card:hover::before{
+  opacity:1;
+}
+
 /* ===== Footer ===== */
 footer{
   background:#fedd89;
@@ -204,14 +241,14 @@ footer{
 <div class="products">
 
   <!-- 商品 1 -->
-  <div class="card">
-    <img src="images/flower1.jpg" alt="粉紫浪漫花束">
-    <h3>粉紫浪漫花束</h3>
-    <div class="price">NT$ 1,280</div>
-    <p>告白與紀念日首選</p>
+  <div class="product-card">
+    <img src="images/高價花籃2.jpg" width="200" alt="高價花籃2">
+    <h3>花材：牡丹菊、腎藥蘭、太陽花、康乃馨、雞冠花</h3>
+    <div class="price">NT$ 4,200</div>
+    <p>適用於開幕、喬遷、婚禮、祝賀等喜慶場合</p>
 
     <div class="more">
-      使用進口玫瑰、洋桔梗與滿天星，象徵溫柔與永恆。
+      花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -219,14 +256,14 @@ footer{
   </div>
 
   <!-- 商品 2 -->
-  <div class="card">
-    <img src="images/flower2.jpg" alt="純白祝福花束">
-    <h3>純白祝福花束</h3>
-    <div class="price">NT$ 1,580</div>
-    <p>象徵純潔與祝福</p>
+  <div class="product-card">
+    <img src="images/921.jpg" width="200" alt="高價花籃3">
+    <h3>花材：進口繡球、紅色玫瑰、白色玫瑰、紅色雞冠花、百合、唐棉</h3>
+    <div class="price">NT$ 2,500</div>
+    <p>適用於開幕、喬遷、婚禮、祝賀等喜慶場合</p>
 
     <div class="more">
-      白玫瑰搭配小雛菊，適合感謝、祝賀場合。
+      花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -234,56 +271,56 @@ footer{
   </div>
 
   <!-- 商品 3 -->
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/高架花籃3.jpg" width="200" alt="高價花籃4">
+    <h3>花材：繡球花、牡丹菊、桔梗、太陽花、百合、玫瑰、蠟梅、金魚草、伯利恆之星、向日葵、尤佳利葉、梔子葉、電信葉</h3>
+    <div class="price">NT$ 3,500</div>
+    <p>適用於開幕、喬遷、婚禮、祝賀等喜慶場合</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/高價花籃4.jpg" width="200" alt="高價花籃5">
+    <h3>花材：百合、太陽花、粉色玫瑰、白色玫瑰</h3>
+    <div class="price">NT$ 3,000</div>
+    <p>適用於開幕、喬遷、婚禮、祝賀等喜慶場合</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
   
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/高架花籃!.jpg" width="200" alt="高價花籃1">
+    <h3>花材：飛燕、繡球、玫瑰、金魚草、百合</h3>
+    <div class="price">NT$ 3,500</div>
+    <p>適合喪禮、告別式、弔念等場合</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
+  <div class="product-card">
+    <img src="images/高價花籃5.jpg" width="200" alt="高價花籃6">
+    <h3>花材：海芋、東亞蘭、OT百合</h3>
     <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+    <p>適用於開幕、喬遷、婚禮、祝賀等喜慶場合</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      花材會有花市臨時缺貨或品質不佳的情形，如有此狀況發生，會以相同色系、同等質的花材做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>

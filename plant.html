@@ -173,6 +173,43 @@ button{
   font-size:18px;
 }
 
+.product-card{
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  transition: 
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* 漸層光邊框（用偽元素） */
+.product-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:20px;
+  background:linear-gradient(
+    135deg,
+    #f7b7d7,
+    #d6c1ff,
+    #ffd6eb
+  );
+  opacity:0;
+  z-index:-1;
+  transition:.35s;
+  filter: blur(6px);
+}
+
+/* Hover 效果 */
+.product-card:hover{
+  transform: scale(1.05);
+}
+
+.product-card:hover::before{
+  opacity:1;
+}
+
 /* ===== Footer ===== */
 footer{
   background:#fedd89;
@@ -204,14 +241,14 @@ footer{
 <div class="products">
 
   <!-- 商品 1 -->
-  <div class="card">
-    <img src="images/flower1.jpg" alt="粉紫浪漫花束">
-    <h3>粉紫浪漫花束</h3>
-    <div class="price">NT$ 1,280</div>
-    <p>告白與紀念日首選</p>
+  <div class="product-card">
+    <img src="images/盆栽1.jpg"  width="200" alt="盆栽1">
+    <h3>花材：龍文蘭、馬拉巴利(小)</h3>
+    <div class="price">NT$ 2,000</div>
+    <p>花器：高約25-30cm</p>
 
     <div class="more">
-      使用進口玫瑰、洋桔梗與滿天星，象徵溫柔與永恆。
+      植物會有季節性缺貨或品質不佳的情形，如有此狀況發生，會以其他植物替代做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -219,14 +256,14 @@ footer{
   </div>
 
   <!-- 商品 2 -->
-  <div class="card">
-    <img src="images/flower2.jpg" alt="純白祝福花束">
-    <h3>純白祝福花束</h3>
-    <div class="price">NT$ 1,580</div>
-    <p>象徵純潔與祝福</p>
+  <div class="product-card">
+    <img src="images/盆栽2.jpg" width="200" alt="盆栽2">
+    <h3>花材：紅葉福祿桐、黃金葛</h3>
+    <div class="price">NT$ 3,000</div>
+    <p>花器：白瓷盆（長寬高約20x20x17cm）</p>
 
     <div class="more">
-      白玫瑰搭配小雛菊，適合感謝、祝賀場合。
+      植物會有季節性缺貨或品質不佳的情形，如有此狀況發生，會以其他植物替代做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -234,56 +271,56 @@ footer{
   </div>
 
   <!-- 商品 3 -->
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/盆栽3.jpg" width="200" alt="盆栽3">
+    <h3>花材：由加、黃金葛</h3>
+    <div class="price">NT$ 7,500</div>
+    <p>花器：瓷盆（高約60cm）</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      植物會有季節性缺貨或品質不佳的情形，如有此狀況發生，會以其他植物替代做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/盆栽4.jpg" width="200" alt="盆栽4">
+    <h3>花材：蒲葵、常春藤</h3>
+    <div class="price">NT$ 3,000</div>
+    <p>花器：瓷盆（高約54cm）</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      植物會有季節性缺貨或品質不佳的情形，如有此狀況發生，會以其他植物替代做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
   
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/盆栽5.jpg" width="200" alt="盆栽5">
+    <h3>花材：多肉植物組合</h3>
+    <div class="price">NT$ 2,000</div>
+    <p>花器：木盒(長寬高約26x15x9 cm)</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      植物鑑賞期限約2-6個月，會因環境、氣候、溫度等因素而影響植物的生命，建議將植物放置半日照、通風處，並適時給予水分。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/盆栽6.jpg" width="200" alt="盆栽6">
+    <h3>花材：幸運竹、人造果實</h3>
+    <div class="price">NT$ 1,800</div>
+    <p>花器：玻璃瓶(瓶口直徑約13cm、高約23.5cm)</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      植物會有季節性缺貨或品質不佳的情形，如有此狀況發生，會以其他植物替代做專業的調整。
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>

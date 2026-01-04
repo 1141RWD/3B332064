@@ -173,6 +173,43 @@ button{
   font-size:18px;
 }
 
+.product-card{
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  transition: 
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* 漸層光邊框（用偽元素） */
+.product-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:20px;
+  background:linear-gradient(
+    135deg,
+    #f7b7d7,
+    #d6c1ff,
+    #ffd6eb
+  );
+  opacity:0;
+  z-index:-1;
+  transition:.35s;
+  filter: blur(6px);
+}
+
+/* Hover 效果 */
+.product-card:hover{
+  transform: scale(1.05);
+}
+
+.product-card:hover::before{
+  opacity:1;
+}
+
 /* ===== Footer ===== */
 footer{
   background:#fedd89;
@@ -204,14 +241,14 @@ footer{
 <div class="products">
 
   <!-- 商品 1 -->
-  <div class="card">
-    <img src="images/flower1.jpg" alt="粉紫浪漫花束">
-    <h3>粉紫浪漫花束</h3>
-    <div class="price">NT$ 1,280</div>
-    <p>告白與紀念日首選</p>
+  <div class="product-card">
+    <img src="images/畢業花束公仔，遠方皆可期-1.jpg" width="200" alt="畢業花束公仔，遠方皆可期">
+    <h3>畢業花束公仔，遠方皆可期</h3>
+    <div class="price">NT$ 1,580</div>
+    <p>玩偶、桔梗、向日葵、香檳玫瑰、多頭玫瑰</p>
 
     <div class="more">
-      使用進口玫瑰、洋桔梗與滿天星，象徵溫柔與永恆。
+      分類: 畢業花束, 畢業花束公仔
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -219,14 +256,14 @@ footer{
   </div>
 
   <!-- 商品 2 -->
-  <div class="card">
-    <img src="images/flower2.jpg" alt="純白祝福花束">
-    <h3>純白祝福花束</h3>
-    <div class="price">NT$ 1,580</div>
-    <p>象徵純潔與祝福</p>
+  <div class="product-card">
+    <img src="images/畢業花束-—-風一樣的女子.jpg" width="200" alt="畢業花束-—-風一樣的女子">
+    <h3>畢業花束-—-風一樣的女子</h3>
+    <div class="price">NT$ 880</div>
+    <p>向日葵、戴安娜粉玫瑰、白色洋桔梗、滿天星、龍柳少許</p>
 
     <div class="more">
-      白玫瑰搭配小雛菊，適合感謝、祝賀場合。
+      分類: 畢業花束
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
@@ -234,56 +271,56 @@ footer{
   </div>
 
   <!-- 商品 3 -->
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
+  <div class="product-card">
+    <img src="images/畢業花束 — 陽光燦爛.jpg" width="200" alt="畢業花束 — 陽光燦爛">
+    <h3>畢業花束 — 陽光燦爛</h3>
     <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+    <p>向日葵、金枝玉葉黃玫瑰、白色石竹梅、綠色小雛菊、梔子葉</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      分類: 畢業花束
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/畢業花束-訂畢業花束-prod23.jpg" width="200" alt="【畢業花束】 -滿盈">
+    <h3>畢業花束 — 滿盈</h3>
+    <div class="price">NT$ 1,080</div>
+    <p>玩偶</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      分類: 畢業花束
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
   
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/【畢業花束】 -英才出眾.jpg" width="200" alt="【畢業花束】 -英才出眾">
+    <h3>畢業花束 — 英才出眾</h3>
+    <div class="price">NT$ 880</div>
+    <p>2枝向日葵，8枝香檳玫瑰，5枝多頭白桔梗，10枝尤加利葉</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      分類: 畢業花束
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
     <button onclick="addCart()">加入購物車</button>
   </div>
 
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
+  <div class="product-card">
+    <img src="images/【畢業花束】 -前程似錦.jpg" width="200" alt="【畢業花束】 -前程似錦">
+    <h3>畢業花束 — 前程似錦</h3>
+    <div class="price">NT$ 1,080</div>
+    <p>向日葵3枝、橘色康乃馨19枝、香檳玫瑰11枝、橘色（或黃色）臘梅2枝（臘梅屬於季節性花材，缺貨則用跳舞蘭或橘色多頭玫瑰等類似花材代替）、尤加利 5枝</p>
 
     <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
+      分類: 畢業花束
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>

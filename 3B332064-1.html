@@ -303,122 +303,166 @@ function addCart(){
 
 </body>
 </html>
---><!--
+-->
+<!--
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<title>花束系列｜柔光花藝</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>花束商品｜花藝坊</title>
 
 <style>
-/* ===== 全域 ===== */
-*{
-  box-sizing:border-box;
-}
-
-:root{
-  --pink:#fde2f3;
-  --purple:#e6d9ff;
-  --deep:#8a6fbf;
-}
-
+/* ===== 基本 ===== */
 body{
   margin:0;
-  font-family:"Microsoft JhengHei",sans-serif;
-  background:linear-gradient(120deg,var(--pink),var(--purple));
+  font-family:"Segoe UI","Noto Sans TC",sans-serif;
+  background:#faf7fc;
+  color:#555;
 }
 
-/* ===== Header ===== */
+/* ===== Header & 漢堡 ===== */
 header{
-  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   padding:15px 20px;
-  text-align:center;
+  background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-header h1{
-  margin:0;
-  color:#6a4fa3;
+.logo{
+  font-size:20px;
+  color:#8a6fbf;
+  font-weight:bold;
+}
+
+.hamburger{
+  font-size:26px;
+  cursor:pointer;
+  user-select:none;
+}
+
+/* ===== 選單 ===== */
+nav{
+  position:fixed;
+  top:0;
+  right:-260px;
+  width:260px;
+  height:100%;
+  background:#fff;
+  box-shadow:-4px 0 20px rgba(0,0,0,.15);
+  padding:60px 20px;
+  transition:.3s;
+}
+
+nav.active{
+  right:0;
+}
+
+nav a{
+  display:block;
+  padding:12px 0;
+  text-decoration:none;
+  color:#7b5fc0;
+  font-size:16px;
 }
 
 /* ===== 商品區 ===== */
-.container{
-  padding:40px 30px;
+.main{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
 }
 
-/* ===== RWD 商品排列 ===== */
-.products{
+.product{
   display:grid;
-  grid-template-columns:repeat(3, 1fr); /* 桌機 */
-  gap:25px;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
 }
 
-/* 平板：1u/2 */
-@media (max-width:1024px){
-  .products{
-    grid-template-columns:repeat(2, 1fr);
-  }
-}
-
-/* 手機：1u/1 */
-@media (max-width:600px){
-  .products{
-    grid-template-columns:1fr;
-  }
-}
-
-.card{
-  background:#fff;
-  border-radius:18px;
-  padding:15px;
-  box-shadow:0 6px 15px rgba(0,0,0,.1);
-  text-align:center;
-}
-
-.card img{
+/* 圖片 */
+.product img{
   width:100%;
-  border-radius:12px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
-.card h3{
-  color:#6a4fa3;
-  margin:10px 0 5px;
+/* 文字 */
+.product-info h1{
+  color:#7b5fc0;
+  margin-bottom:10px;
 }
 
 .price{
-  font-weight:bold;
-  color:#333;
+  font-size:22px;
+  color:#e573a0;
+  margin:15px 0;
 }
 
-.card p{
-  font-size:14px;
+.product-info p{
+  line-height:1.8;
   color:#666;
 }
 
-.more{
-  display:none;
-  font-size:13px;
-  color:#777;
-  margin-top:5px;
+/* ===== 購買區 ===== */
+.buy-box{
+  margin-top:25px;
 }
 
-button{
-  background:var(--deep);
-  color:#fff;
+.buy-box select,
+.buy-box button{
+  padding:10px;
+  font-size:15px;
+  margin-top:10px;
+  width:100%;
+}
+
+.buy-box button{
+  background:linear-gradient(135deg,#f6c1d1,#c6b7f2);
   border:none;
-  padding:8px 16px;
-  border-radius:20px;
+  color:#fff;
+  border-radius:30px;
   cursor:pointer;
-  margin:6px 3px 0;
 }
 
 /* ===== Footer ===== */
 footer{
-  background:#fff;
-  text-align:center;
-  padding:25px;
+  background:#f1edf9;
+  padding:30px 20px;
+  margin-top:60px;
+}
+
+.footer-content{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+footer h4{
+  color:#7b5fc0;
+  margin-bottom:10px;
+}
+
+footer p{
   font-size:14px;
-  color:#555;
-  margin-top:40px;
+  color:#666;
+}
+
+/* ===== RWD ===== */
+@media(max-width:768px){
+  .product{
+    grid-template-columns:1fr;
+  }
+  .footer-content{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -426,80 +470,83 @@ footer{
 <body>
 
 <header>
-  <h1>花束系列</h1>
+  <div class="logo">花藝坊</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
 </header>
 
-<section class="container">
+<nav id="menu">
+  <a href="index.html">首頁</a>
+  <a href="categories.html">商品分類</a>
+  <a href="cart.html">購物車</a>
+  <a href="#">聯絡我們</a>
+</nav>
 
-<div class="products">
+// 商品內容 
+<div class="main">
+  <div class="product">
+    <img src="images/bouquet1.jpg" alt="花束">
 
-  // 商品 1 
-  <div class="card">
-    <img src="images/flower1.jpg" alt="粉紫浪漫花束">
-    <h3>粉紫浪漫花束</h3>
-    <div class="price">NT$ 1,280</div>
-    <p>告白與紀念日首選</p>
+    <div class="product-info">
+      <h1>浪漫玫瑰花束</h1>
+      <div class="price">NT$ 1,680</div>
+      <p>
+        精選進口玫瑰，搭配柔和包裝設計，
+        適合告白、紀念日與生日送禮。
+      </p>
 
-    <div class="more">
-      使用進口玫瑰、洋桔梗與滿天星，象徵溫柔與永恆。
+      <div class="buy-box">
+        <label>配送方式</label>
+        <select>
+          <option>宅配到府</option>
+          <option>門市自取</option>
+        </select>
+
+        <label>付款方式</label>
+        <select>
+          <option>信用卡</option>
+          <option>ATM 轉帳</option>
+          <option>貨到付款</option>
+        </select>
+
+        <button onclick="addCart()">加入購物車</button>
+      </div>
     </div>
-
-    <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
   </div>
-
-  //商品 2
-  <div class="card">
-    <img src="images/flower2.jpg" alt="純白祝福花束">
-    <h3>純白祝福花束</h3>
-    <div class="price">NT$ 1,580</div>
-    <p>象徵純潔與祝福</p>
-
-    <div class="more">
-      白玫瑰搭配小雛菊，適合感謝、祝賀場合。
-    </div>
-
-    <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
-  </div>
-
-  // 商品 3
-  <div class="card">
-    <img src="images/flower3.jpg" alt="粉色心意花束">
-    <h3>粉色心意花束</h3>
-    <div class="price">NT$ 1,380</div>
-    <p>溫柔傳情</p>
-
-    <div class="more">
-      淡粉色系花材，展現溫暖與細膩心意。
-    </div>
-
-    <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
-  </div>
-
 </div>
-</section>
 
+// Footer 
 <footer>
-  <p>柔光花藝 Flower Studio</p>
-  <p>☎ 04-1234-5678 ｜ ✉ flowerstudio@email.com</p>
+  <div class="footer-content">
+    <div>
+      <h4>聯絡資訊</h4>
+      <p>電話：02-1234-5678</p>
+      <p>Email：service@flower.com</p>
+    </div>
+    <div>
+      <h4>營業時間</h4>
+      <p>週一至週六 09:00 - 19:00</p>
+    </div>
+    <div>
+      <h4>配送說明</h4>
+      <p>全台宅配 / 門市自取</p>
+    </div>
+  </div>
 </footer>
 
 <script>
-let cart = 0;
-
-function toggleMore(btn){
-  const more = btn.previousElementSibling;
-  more.style.display = (more.style.display === "block") ? "none" : "block";
+function toggleMenu(){
+  const menu = document.getElementById("menu");
+  const btn = document.querySelector(".hamburger");
+  menu.classList.toggle("active");
+  btn.textContent = menu.classList.contains("active") ? "✕" : "☰";
 }
 
 function addCart(){
-  cart++;
-  alert("商品已加入購物車（目前：" + cart + " 件）");
+  alert("商品已加入購物車！");
 }
 </script>
 
 </body>
 </html>
+
 -->
