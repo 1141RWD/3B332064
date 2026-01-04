@@ -24,7 +24,7 @@ body{
 
 /* ===== Header ===== */
 header{
-  background:#fff;
+  background:#fedd89;
   padding:15px 20px;
   text-align:center;
 }
@@ -32,6 +32,12 @@ header{
 header h1{
   margin:0;
   color:#6a4fa3;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  color:var(--deep);
 }
 
 .hamburger{
@@ -142,6 +148,31 @@ button{
   margin:6px 3px 0;
 }
 
+#menu{
+  position:fixed;
+  top:0;
+  right:-260px;
+  width:260px;
+  height:100vh;
+  background:#fff;
+  box-shadow:-4px 0 15px rgba(0,0,0,.2);
+  padding:60px 20px;
+  transition:.3s;
+  z-index:1000;
+}
+
+#menu.active{
+  right:0;
+}
+
+#menu a{
+  display:block;
+  margin:20px 0;
+  text-decoration:none;
+  color:#555;
+  font-size:18px;
+}
+
 /* ===== Footer ===== */
 footer{
   background:#fedd89;
@@ -156,17 +187,17 @@ footer{
 <body>
 
 <header>
-  <h1>花束系列</h1>
+  <div class="logo">花束系列｜柔光花藝</div>
   <div class="hamburger" onclick="toggleMenu()">☰</div>
 </header>
 
-<!-- 漢堡選單 -->
 <nav id="menu">
   <div class="close-btn" onclick="toggleMenu()">✕</div>
-  <a href="index.html">首頁</a>
-  <a href="#">花藝分類</a>
-  <a href="#">購物車</a>
+   <a href="index.html" target="_blank">首頁</a>          <!-- 👉 連回主頁 -->
+  <a href="index.html" target="_blank">花藝分類</a> <!-- 👉 主分類頁（或 categories.html） -->
+  <a href="cart.html" target="_blank">購物車</a>         <!-- 👉 連到購物車頁 -->
 </nav>
+
 
 <section class="container">
 
@@ -278,6 +309,13 @@ function toggleMore(btn){
 function addCart(){
   cart++;
   alert("商品已加入購物車（目前：" + cart + " 件）");
+}
+</script>
+
+<script>
+function toggleMenu(){
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active");
 }
 </script>
 
