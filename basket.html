@@ -252,7 +252,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="basket001"
+      data-name="高價花籃1"
+      data-price="4200"
+      data-img="images/高價花籃2.jpg">加入購物車</button>
   </div>
 
   <!-- 商品 2 -->
@@ -267,7 +271,13 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button  class="add-cart"
+      data-id="basket002"
+      data-name="高價花籃2"
+      data-price="2500"
+      data-img="images/921.jpg">
+      加入購物車
+    </button>>加入購物車</button>
   </div>
 
   <!-- 商品 3 -->
@@ -282,7 +292,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="basket003"
+      data-name="高價花籃3"
+      data-price="3500"
+      data-img="images/高架花籃3.jpg">加入購物車</button>
   </div>
 
   <div class="product-card">
@@ -296,7 +310,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="basket004"
+      data-name="高價花籃4"
+      data-price="3000"
+      data-img="images/高價花籃4.jpg">加入購物車</button>
   </div>
   
   <div class="product-card">
@@ -310,7 +328,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="basket005"
+      data-name="高價花籃5"
+      data-price="3500"
+      data-img="images/高架花籃!.jpg">加入購物車</button>
   </div>
 
   <div class="product-card">
@@ -324,7 +346,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="basket006"
+      data-name="高價花籃6"
+      data-price="1380"
+      data-img="images/高價花籃5.jpg">加入購物車</button>
   </div>
 
 </div>
@@ -343,10 +369,27 @@ function toggleMore(btn){
   more.style.display = (more.style.display === "block") ? "none" : "block";
 }
 
-function addCart(){
+/*function addCart(){
   cart++;
   alert("商品已加入購物車（目前：" + cart + " 件）");
-}
+}*/
+/* ===== 加入購物車（串 cart.html）===== */
+document.querySelectorAll(".add-cart").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const product = {
+      id: btn.dataset.id,
+      name: btn.dataset.name,
+      price: Number(btn.dataset.price),
+      img: btn.dataset.img
+    };
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("已加入購物車 🛒");
+  });
+});
 </script>
 
 <script>

@@ -1,11 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>購物車</title>
+<link rel="stylesheet" href="cart.css">
 </head>
+
 <body>
-    
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="logo">Flower Shop</div>
+  <div class="hamburger" id="hamburger">☰</div>
+
+  <nav class="menu" id="menu">
+    <div class="close" id="closeMenu">✕</div>
+    <a href="index.html">首頁</a>
+  </nav>
+</header>
+
+<!-- ===== Main ===== -->
+<main class="cart-container">
+
+  <!-- 左側：訂單資訊 -->
+  <section class="order-form">
+    <h2>訂單資訊</h2>
+
+    <label>姓名</label>
+    <input type="text" id="name">
+
+    <label>電話</label>
+    <input type="text" id="phone">
+
+    <label>Email</label>
+    <input type="email" id="email">
+
+    <label>付款方式</label>
+    <select id="payment">
+      <option>信用卡</option>
+      <option>貨到付款</option>
+      <option>轉帳</option>
+    </select>
+
+    <label>寄送地址</label>
+    <textarea id="address"></textarea>
+
+    <div class="form-btns">
+      <button id="submitOrder">確認送出</button>
+      <button id="cancelOrder">取消</button>
+    </div>
+  </section>
+
+  <!-- 右側：購物車 -->
+  <section class="cart-box">
+    <h2>購物車內容</h2>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-total">
+      小計：NT$ <span id="total">0</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== 成功畫面（假送出） ===== -->
+<div class="success-modal" id="successModal">
+  <div class="success-content">
+    <h2>訂單已送出 🎉</h2>
+    <p>我們已將訂單資訊寄送至您的 Email</p>
+    <p>後續進度將以郵件通知您</p>
+    <button id="backHome">回首頁</button>
+  </div>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <p>聯絡電話：0912-345-678</p>
+  <p>Email：flowershop@mail.com</p>
+</footer>
+
+<script src="cart.js"></script>
 </body>
 </html>
