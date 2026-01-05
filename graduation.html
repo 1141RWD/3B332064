@@ -252,7 +252,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="graduation1"
+      data-name="畢業花束1"
+      data-price="1580"
+      data-img="images/畢業花束公仔，遠方皆可期-1.jpg">加入購物車</button>
   </div>
 
   <!-- 商品 2 -->
@@ -267,7 +271,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="graduation2"
+      data-name="畢業花束2"
+      data-price="880"
+      data-img="images/畢業花束-—-風一樣的女子.jpg">加入購物車</button>
   </div>
 
   <!-- 商品 3 -->
@@ -282,7 +290,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="graduation3"
+      data-name="畢業花束3"
+      data-price="1380"
+      data-img="images/畢業花束 — 陽光燦爛.jpg">加入購物車</button>
   </div>
 
   <div class="product-card">
@@ -296,7 +308,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="graduation4"
+      data-name="畢業花束4"
+      data-price="1080"
+      data-img="images/畢業花束-訂畢業花束-prod23.jpg">加入購物車</button>
   </div>
   
   <div class="product-card">
@@ -310,7 +326,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="graduation5"
+      data-name="畢業花束5"
+      data-price="880"
+      data-img="images/【畢業花束】 -英才出眾.jpg">加入購物車</button>
   </div>
 
   <div class="product-card">
@@ -324,7 +344,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="graduation6"
+      data-name="畢業花束6"
+      data-price="1080"
+      data-img="images/【畢業花束】 -前程似錦.jpg">加入購物車</button>
   </div>
 
 </div>
@@ -343,12 +367,33 @@ function toggleMore(btn){
   more.style.display = (more.style.display === "block") ? "none" : "block";
 }
 
-function addCart(){
-  cart++;
-  alert("商品已加入購物車（目前：" + cart + " 件）");
-}
-</script>
 
+</script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelectorAll(".add-cart").forEach(btn=>{
+    btn.onclick=()=>{
+      const product = {
+        id:btn.dataset.id,
+        name:btn.dataset.name,
+        price:Number(btn.dataset.price),
+        img:btn.dataset.img
+      };
+
+      /* 👇 取得 localStorage cart 陣列或初始化 */
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      /* push 新商品 */
+      cart.push(product);
+
+      /* 存回 localStorage */
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      alert("已加入購物車 🛒");
+    };
+  });
+});
+</script>
 <script>
 function toggleMenu(){
   const menu = document.getElementById("menu");

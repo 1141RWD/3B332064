@@ -252,7 +252,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="preserved1"
+      data-name="永生花&乾燥花1"
+      data-price="3000"
+      data-img="images/滿天星花束-主圖.jpg">加入購物車</button>
   </div>
 
   <!-- 商品 2 -->
@@ -267,7 +271,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="preserved2"
+      data-name="永生花&乾燥花2"
+      data-price="3000"
+      data-img="images/紫繁星花束-商品.jpg">加入購物車</button>
   </div>
 
   <!-- 商品 3 -->
@@ -282,7 +290,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="preserved3"
+      data-name="永生花&乾燥花3"
+      data-price="3000"
+      data-img="images/羅曼蒂克花罩-商品.jpg">加入購物車</button>
   </div>
 
   <div class="product-card">
@@ -296,7 +308,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="preserved4"
+      data-name="永生花&乾燥花4"
+      data-price="4500"
+      data-img="images/秋色滿園花盆-商品.jpg">加入購物車</button>
   </div>
   
   <div class="product-card">
@@ -310,7 +326,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="preserved5"
+      data-name="永生花&乾燥花5"
+      data-price="1380"
+      data-img="images/青藍玫瑰花盆-商品.jpg">加入購物車</button>
   </div>
 
   <div class="product-card">
@@ -324,7 +344,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="preserved6"
+      data-name="永生花&乾燥花6"
+      data-price="4500"
+      data-img="images/柔情金麥盆-商品.jpg">加入購物車</button>
   </div>
 
 </div>
@@ -343,12 +367,33 @@ function toggleMore(btn){
   more.style.display = (more.style.display === "block") ? "none" : "block";
 }
 
-function addCart(){
-  cart++;
-  alert("商品已加入購物車（目前：" + cart + " 件）");
-}
-</script>
 
+</script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelectorAll(".add-cart").forEach(btn=>{
+    btn.onclick=()=>{
+      const product = {
+        id:btn.dataset.id,
+        name:btn.dataset.name,
+        price:Number(btn.dataset.price),
+        img:btn.dataset.img
+      };
+
+      /* 👇 取得 localStorage cart 陣列或初始化 */
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      /* push 新商品 */
+      cart.push(product);
+
+      /* 存回 localStorage */
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      alert("已加入購物車 🛒");
+    };
+  });
+});
+</script>
 <script>
 function toggleMenu(){
   const menu = document.getElementById("menu");

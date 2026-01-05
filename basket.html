@@ -277,7 +277,7 @@ footer{
       data-price="2500"
       data-img="images/921.jpg">
       加入購物車
-    </button>>加入購物車</button>
+    </button>
   </div>
 
   <!-- 商品 3 -->
@@ -373,7 +373,7 @@ function toggleMore(btn){
   cart++;
   alert("商品已加入購物車（目前：" + cart + " 件）");
 }*/
-/* ===== 加入購物車（串 cart.html）===== */
+/* ===== 加入購物車（串 cart.html）===== 
 document.querySelectorAll(".add-cart").forEach(btn=>{
   btn.addEventListener("click", ()=>{
     const product = {
@@ -388,6 +388,31 @@ document.querySelectorAll(".add-cart").forEach(btn=>{
     localStorage.setItem("cart", JSON.stringify(cart));
 
     alert("已加入購物車 🛒");
+  });
+});*/
+</script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelectorAll(".add-cart").forEach(btn=>{
+    btn.onclick=()=>{
+      const product = {
+        id:btn.dataset.id,
+        name:btn.dataset.name,
+        price:Number(btn.dataset.price),
+        img:btn.dataset.img
+      };
+
+      /* 👇 取得 localStorage cart 陣列或初始化 */
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      /* push 新商品 */
+      cart.push(product);
+
+      /* 存回 localStorage */
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      alert("已加入購物車 🛒");
+    };
   });
 });
 </script>

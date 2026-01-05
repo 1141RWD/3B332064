@@ -252,7 +252,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="plant1"
+      data-name="盆栽1"
+      data-price="2000"
+      data-img="images/盆栽1.jpg">加入購物車</button>
   </div>
 
   <!-- 商品 2 -->
@@ -267,7 +271,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="plant2"
+      data-name="盆栽2"
+      data-price="3000"
+      data-img="images/盆栽2.jpg">加入購物車</button>
   </div>
 
   <!-- 商品 3 -->
@@ -282,7 +290,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="plant3"
+      data-name="盆栽3"
+      data-price="7500"
+      data-img="images/盆栽3.jpg">加入購物車</button>
   </div>
 
   <div class="product-card">
@@ -296,7 +308,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="plant4"
+      data-name="盆栽4"
+      data-price="3000"
+      data-img="images/盆栽4.jpg">加入購物車</button>
   </div>
   
   <div class="product-card">
@@ -310,7 +326,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="plant5"
+      data-name="盆栽5"
+      data-price="2000"
+      data-img="images/盆栽5.jpg">加入購物車</button>
   </div>
 
   <div class="product-card">
@@ -324,7 +344,11 @@ footer{
     </div>
 
     <button onclick="toggleMore(this)">更多介紹</button>
-    <button onclick="addCart()">加入購物車</button>
+    <button class="add-cart"
+      data-id="plant6"
+      data-name="盆栽6"
+      data-price="1800"
+      data-img="images/盆栽6.jpg">加入購物車</button>
   </div>
 
 </div>
@@ -343,12 +367,33 @@ function toggleMore(btn){
   more.style.display = (more.style.display === "block") ? "none" : "block";
 }
 
-function addCart(){
-  cart++;
-  alert("商品已加入購物車（目前：" + cart + " 件）");
-}
-</script>
 
+</script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelectorAll(".add-cart").forEach(btn=>{
+    btn.onclick=()=>{
+      const product = {
+        id:btn.dataset.id,
+        name:btn.dataset.name,
+        price:Number(btn.dataset.price),
+        img:btn.dataset.img
+      };
+
+      /* 👇 取得 localStorage cart 陣列或初始化 */
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      /* push 新商品 */
+      cart.push(product);
+
+      /* 存回 localStorage */
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      alert("已加入購物車 🛒");
+    };
+  });
+});
+</script>
 <script>
 function toggleMenu(){
   const menu = document.getElementById("menu");
